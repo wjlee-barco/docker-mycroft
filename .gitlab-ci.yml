@@ -12,7 +12,7 @@ mycroft:
     - whoami
     - if [ -e .env ]; then echo "Found .env"; else cp .env.sample .env; fi
     - source .env
-    # - sudo bash ./scripts/before_script_install.sh
+    - sudo bash ./scripts/before_script_install.sh
     - set -e # Enable exit on error 
   script: 
     - set +e # Disable exit on error
