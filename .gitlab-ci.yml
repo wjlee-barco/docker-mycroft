@@ -2,7 +2,7 @@ mycroft:
 #  variables:
 #    CI_DEBUG_TRACE: "true"
   tags:
-    - barco, shell, ubuntu
+    - barco, shell, ubuntu, desktop
   stage: deploy
   cache:
       paths:
