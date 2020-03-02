@@ -17,6 +17,12 @@ sudo apt-get -y install curl
 sudo apt-get -y install ntp
 sudo service ntp restart
 
+# install git
+sudo apt-get install -y git
+sudo apt-get install -y git-lsf
+#install nmap 
+sudo apt-get install -y nmap
+
 # install socat
 sudo apt-get install -y socat 
     
