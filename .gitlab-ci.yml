@@ -35,6 +35,7 @@ mycroft:
     # first stop docker process, clean up all stop images, containers
     - sudo bash ./scripts/before_script.sh
     - sudo bash ./scripts/script.sh
+    - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
     - set -e # Enable exit on error
   artifacts:
     name: "mycroft"
