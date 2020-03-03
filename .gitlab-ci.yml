@@ -12,7 +12,7 @@ mycroft:
     - whoami
     - if [ -e .env ]; then echo "Found .env"; else cp .env.sample .env; fi
     - source .env
-    - sudo bash ./scripts/before_script_install.sh
+    #- sudo bash ./scripts/before_script_install.sh
     - set -e # Enable exit on error 
   script: 
     - set +e # Disable exit on error
@@ -33,10 +33,8 @@ mycroft:
     - sudo docker container ls -q
 
     # first stop docker process, clean up all stop images, containers
-    - sudo docker stop  $(sudo docker container ls -aq --filter name=mycroft*);sudo docker container prune -f; sudo docker image prune -a -f
-  
-    - sudo docker run -v $PWD:/root/.mycroft --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v ~/.config/pulse/cookie:/root/.config/pulse/cookie -p 8181:8181 --name mycroft mycroftai/docker-mycroft
-    - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
+    - sudo bash ./scripts/before_script.sh
+    - sudo bash ./scripts/script.sh
     - set -e # Enable exit on error
   artifacts:
     name: "mycroft"
