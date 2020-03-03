@@ -36,6 +36,7 @@ mycroft:
     - sudo bash ./scripts/before_script.sh
     - sudo bash ./scripts/script.sh
     - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
+    - sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner/.*
     - set -e # Enable exit on error
   artifacts:
     name: "mycroft"
@@ -45,4 +46,5 @@ mycroft:
       - $PWD/config
       - $PWD/logs
   after_script:
+    - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
     - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
