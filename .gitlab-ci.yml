@@ -47,4 +47,3 @@ mycroft:
       - $PWD/logs
   after_script:
     - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
-    - sudo chown -R gitlab-runner:gitlab-runner $PWD/*
